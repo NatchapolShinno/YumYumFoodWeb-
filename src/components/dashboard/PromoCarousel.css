@@ -1,0 +1,32 @@
+.carouselItem {
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    box-shadow: 1px 1px #9E9E9E;
+    /*border-radius: 10%;*/
+    max-width: 300px;
+}
+
+.carouselImage {
+    max-width: 300px;
+}
+
+.star {
+    display: inline-block;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.rating-bar {
+    width: 120px;
+    display: inline-block;
+}
+
+h1  {
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+table {
+    width: 100% !important;
+}

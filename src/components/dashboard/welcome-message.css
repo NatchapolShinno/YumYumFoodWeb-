@@ -1,0 +1,14 @@
+.welcome  {
+    text-align: center;
+    /*font-size: calc(10px + 5vmin);*/
+    margin-bottom: 3%;
+}
+
+.welcome p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: calc(10px + 8vmin);
+    line-height: 75%;
+    text-align: left;
+    display: block;
+}

@@ -1,0 +1,17 @@
+.scroll-prompt {
+    font-size: 12pt;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    margin-top: 10%;
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+.scroll-arrow {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.hide {
+    opacity: 0;
+}

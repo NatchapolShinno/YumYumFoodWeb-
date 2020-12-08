@@ -1,0 +1,12 @@
+.Navbar {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(226,226,226,1) 0%, rgba(255,255,255,0) 100%);
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.Navbar.scroll {
+    box-shadow: 1px 3px 10px #9E9E9E;
+    background: rgba(255,255,255,1);
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
