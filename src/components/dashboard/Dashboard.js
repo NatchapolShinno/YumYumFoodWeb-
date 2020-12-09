@@ -9,9 +9,11 @@ import { compose } from "redux";
 import Headline from './Headline'
 import Divider from './Divider'
 import Welcome from './welcome-message'
-
+import './Dashboard.css'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 {/*import PromoCarousel from './PromoCarousel'*/}
+
+
 
 const containerMargin = {
     padding: '20px 0 0 0',margin: '0 0 0 70px',
