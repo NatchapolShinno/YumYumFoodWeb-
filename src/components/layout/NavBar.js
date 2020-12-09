@@ -49,7 +49,7 @@ class YumYumNav extends React.Component {
     return (
         <div className="Navbar-back">
         <Navbar bg="none" expand="lg"  className={this.state.navclass}>
-            <Navbar.Brand href="home" className="YumYum-Logo">
+            <Navbar.Brand href="/" className="YumYum-Logo">
                 <img
                 src={logo}
                 className="YumYum-Logo"
@@ -60,7 +60,7 @@ class YumYumNav extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                    <Nav.Link href="home">Home</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="discover">Discover</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -72,7 +72,7 @@ class YumYumNav extends React.Component {
                     </Nav>
 
                     <Form  inline>
-                        <Button variant="success" href="/login">Sign In</Button>
+                        <Button variant="success" href="/signin">Sign In</Button>
                     </Form>
                     {/*<Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
