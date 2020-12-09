@@ -25,7 +25,11 @@ const firebaseConfig = {
   userProfile: "users", // where profiles are stored in database
   useFirestoreForProfile: true, // use Firestore for profile instead of RTDB
 };
-const rrfConfig = { userProfile: "users" };
+const rrfConfig = {
+  userProfile: "users",
+  useFirestoreForProfile: true,
+  attachAuthIsReady: true,
+};
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
@@ -35,8 +39,8 @@ const rrfProps = {
   firebase,
   config: rrfConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance // <- needed if using firestore
-};
+  createFirestoreInstance
+}
 
 ReactDOM.render(
   <React.StrictMode>

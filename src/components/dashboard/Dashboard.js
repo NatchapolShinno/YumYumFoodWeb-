@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import Notifications from './Notification';
 import ProjectList from '../projects/ProjectList'
 import { connect } from 'react-redux'
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";  
 
 import Headline from './Headline'
 import Divider from './Divider'
@@ -20,6 +22,7 @@ var paddingtop = {
 }
 class Dashboard extends Component {
   render() {
+    const { projects } = this.props;
       //console.log(this.props);
     return (
       <div>
@@ -36,29 +39,32 @@ class Dashboard extends Component {
 
 
         <Container style={containerMargin}>
-          <Row>
-            <Col sm={10}>
-            </Col>
-            <Col sm={2} style={{padding: "0 0 10px 0"}}>
-              <Notifications />
-            </Col>
-          </Row>
-          <Row>
-            <Col sm={1}></Col>
-            <Col sm={11}>
-              <ProjectList />
-            </Col>
-          </Row>
-        </Container>
+        <Row>
+          <Col sm={10}></Col>
+          <Col sm={2} style={{ padding: "0 0 10px 0" }}>
+            <Notifications />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={1}></Col>
+          <Col sm={11}>
+            <ProjectList projects={projects} />
+          </Col>
+        </Row>
+      </Container>
       </div>
     );
   }
 }
+
 const mapStateToProps = (state) => {
-    return{
-        projects: state.project.projects
-    }
-}
+  console.log(state);
+  return {
+    projects: state.firestore.ordered.Restaurants
+  };
+};
 
-export default connect(mapStateToProps)(Dashboard)
-
+export default compose(
+  firestoreConnect(() => ["Restaurants"]),
+  connect(mapStateToProps)
+)(Dashboard);

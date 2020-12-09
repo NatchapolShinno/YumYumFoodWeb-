@@ -8,7 +8,7 @@ const initState = {
       openHours: "Open 24 hours",
       phone: "022-123-1234",
       priceType: "$$ - Fast food restaurant",
-      restaurantName: "Burker King - The Bright Mall",
+      restaurantName: "(1)Burker King - The Bright Mall",
     },
     {
       id: "2",
@@ -18,7 +18,7 @@ const initState = {
       openHours: "Open 24 hours",
       phone: "022-123-1234",
       priceType: "$$ - Fast food restaurant",
-      restaurantName: "Burker King - The Bright Mall",
+      restaurantName: "(2)Burker King - The Bright Mall",
     },
     {
       id: "3",
@@ -28,7 +28,7 @@ const initState = {
       openHours: "Open 24 hours",
       phone: "022-123-1234",
       priceType: "$$ - Fast food restaurant",
-      restaurantName: "Burker King - The Bright Mall",
+      restaurantName: "(3)Burker King - The Bright Mall",
     }
   ]
 };
@@ -36,9 +36,15 @@ const initState = {
 const projectReducer = (state = initState, action) => {
     switch (action.type) {
         case 'CREATE_RESTAURANT':
-            console.log('createProject',action.project)
+            console.log('createProject',action.project);
+            return state;
+        case 'CREATE_RESTAURANT_ERROR':
+            console.log("createProject_err", action.err);
+            return state;
+        default:
+          return state;
     }
-  return state;
 };
 
 export default projectReducer;
+ 
