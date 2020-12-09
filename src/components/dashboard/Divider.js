@@ -42,7 +42,7 @@ class Divider extends React.Component
 
     render() {
 
-        var textPromptClass = this.state.hide ? 'scroll-prompt hide' : 'scroll-prompt';
+        var textPromptClass = this.state.hide ? 'scroll-prompt hide' : 'scroll-prompt blinking';
         var arrowPromptClass = this.state.hide ? 'hide' : '';
 
         return (

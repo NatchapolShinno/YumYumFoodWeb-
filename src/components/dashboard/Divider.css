@@ -9,9 +9,20 @@
 
 .scroll-arrow {
     opacity: 1;
-    transition: opacity 0.2s;
 }
 
 .hide {
     opacity: 0;
+    transition: opacity 1s;
+}
+
+.blinking {
+    animation:blinkingText 5s linear infinite;
+}
+
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: transparent; }
+    50%{    color: transparent; }
+    100%{   color: #000;    }
 }
