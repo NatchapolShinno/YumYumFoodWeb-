@@ -12,3 +12,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+label {
+  font-family: 'Open Sans', sans-serif;
+}
