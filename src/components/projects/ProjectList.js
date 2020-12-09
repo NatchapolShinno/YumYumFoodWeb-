@@ -1,16 +1,16 @@
 import React from "react";
-import { CardDeck, CardColumns } from "react-bootstrap";
+import { CardColumns } from "react-bootstrap";
 
 import ProjectSummary from './ProjectSummary';
 
-export default function ProjectList() {
+export default function ProjectList({projects}) {
   return (
     <CardColumns>
-      <ProjectSummary />
-      <ProjectSummary />
-      <ProjectSummary />
-      <ProjectSummary />
-      <ProjectSummary />
+      {projects && projects.map(project =>{
+        return (      
+        <ProjectSummary project = {project} key ={ project.id }/>
+        )
+      })}
       
 
     </CardColumns>

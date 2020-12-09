@@ -87,7 +87,7 @@ class CreateProject extends Component {
               />
             </Form.Group>
             <Button variant="primary" type="submit">
-              SIGN UP
+              CREATE RESTAURANT
             </Button>
           </Form>
         </Col>

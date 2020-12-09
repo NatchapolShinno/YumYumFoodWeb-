@@ -1,10 +1,15 @@
 import React from "react";
 import { Carousel, Container, Row, Card } from "react-bootstrap";
 import BurgerIMG from "../../image/gourmet-burger-scaled.jpg";
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux'
+
 
 const ProjectDetail = (props) => {
-  const id = props.match.params.id;
-  return (
+const { restaurant } = props;
+if(restaurant){
+  return(
     <Container style={{ padding: "20px 0 0 0" }}>
       <Row>
         <Carousel style={{ width: "100%", margin:"auto" }}>
@@ -36,19 +41,37 @@ const ProjectDetail = (props) => {
       <Row>
         <Card style={{ width: "100%", margin: "20px 0 0 0" }}>
           <Card.Body>
-            <Card.Title>Restaurant - {id}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Subtitle</Card.Subtitle>
+            <Card.Title>{restaurant.restaurantName}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">{restaurant.priceType}</Card.Subtitle>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+<b>Phone:</b> {restaurant.phone}<br/><b>Address:</b> {restaurant.address}<br/><b>Open Hours:</b> {restaurant.openHours}
             </Card.Text>
             <Card.Link href="#">Link</Card.Link>
             <Card.Link href="#">Another Link</Card.Link>
           </Card.Body>
         </Card>
       </Row>
+    </Container>)
+}else{
+  return (
+    <Container>
+      <p>Loading Page...</p>
     </Container>
-  );
+
+  )}
 };
 
-export default ProjectDetail;
+const mapStateToProps = (state, ownProps) => {
+  //console.log(state);
+  const id = ownProps.match.params.id;
+  const restaurants = state.firestore.data.Restaurants;
+  const restaurant =  restaurants ? restaurants[id]:null
+  return {
+    restaurant: restaurant
+  }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect(() => ["Restaurants"])
+)(ProjectDetail);

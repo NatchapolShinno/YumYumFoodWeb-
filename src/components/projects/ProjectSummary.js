@@ -1,10 +1,11 @@
 import React from "react";
 import Burger from "../../image/BurgerKing.jpg";
-import { Card, CardDeck, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { IoMdShareAlt } from "react-icons/io";
 import { MdRateReview } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
-const ProjectSummary = () => {
+const ProjectSummary = ({project}) => {
   return (
     <Card style={{ width: "21rem" }}>
       <Card.Img
@@ -15,28 +16,29 @@ const ProjectSummary = () => {
       />
       <Card.Body>
         <Card.Title>
-          <b>Burker King - The Bright Mall</b>
+          <b>{project.restaurantName}</b>
         </Card.Title>
         <Card.Text>
-          <b>Address:</b> The Bright mall 15/9 Rama2 Rd, Thakam,
-          Bangkhunthain, Bangkok 10150
+          <b>Address:</b> {project.address}
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroupItem>
-          <b>Hours:</b> Open 24 hours
+          <b>Hours:</b> {project.openHours}
         </ListGroupItem>
         <ListGroupItem>
-          <b>$$</b> - Fast food restaurant
+          <b>{project.priceType}</b>
         </ListGroupItem>
         <ListGroupItem>
-          <b>Phone:</b> 02 365 6999
+          <b>Phone:</b> {project.phone}
         </ListGroupItem>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">
-          <MdRateReview /> Write Review
-        </Card.Link>
+
+          <Card.Link href={"/project/" + project.id}>
+            <MdRateReview /> Write Review &nbsp;
+          </Card.Link>
+
         <Card.Link href="#">
           <IoMdShareAlt /> Share
         </Card.Link>
