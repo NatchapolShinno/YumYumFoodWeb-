@@ -17,7 +17,7 @@
 }
 
 .blinking {
-    animation:blinkingText 5s linear infinite;
+    animation:blinkingText 3s linear infinite;
 }
 
 @keyframes blinkingText{
