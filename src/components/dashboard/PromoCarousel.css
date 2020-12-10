@@ -26,9 +26,6 @@
     display: inline-block;
 }
 
-h1  {
-    margin-left: 5%;
-}
 
 table {
     width: 100% !important;
@@ -36,6 +33,7 @@ table {
 
 .promoHeader {
     margin-top: 10vh;
+    margin-left: 5%;
 }
 
 .promoSubtitle {
