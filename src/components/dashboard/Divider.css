@@ -5,6 +5,7 @@
     margin-top: 10%;
     transition: opacity 0.2s;
     opacity: 1;
+    font-weight: 300;
 }
 
 .scroll-arrow {

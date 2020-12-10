@@ -56,7 +56,7 @@ class Divider extends React.Component
                 className={textPromptClass}
                 onClick={() => this.scrollDown(this.scrollRef)}
                 >
-                    scroll down to find out more
+                    Scroll down to find out more
                 </p>
 
                 {/*DOWN ARROW*/}
