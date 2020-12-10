@@ -45,9 +45,12 @@ class YumYumNav extends React.Component {
     }
 
     render() {
-        const {auth, profile} = this.props;
-        console.log(auth);
-        const links = auth.uid ? <SignedInLink profile={profile}/>:<SignedOutLink/>;
+        /*const {auth, profile} = this.props;*/
+        const auth = this.props.auth;
+        const profile = this.props.profile;
+        /*console.log(auth);
+        console.log(profile);*/
+        const links = auth.uid ? <SignedInLink profile={profile} auth={auth}/>:<SignedOutLink/>;
 
         return (
             <div className={this.state.navClass}>

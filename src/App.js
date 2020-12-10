@@ -6,6 +6,7 @@ import ProjectDetail from './components/projects/ProjectDetail';
 import SignIn from "./components/authentication/SignIn";
 import SignUp from "./components/authentication/SingUp";
 import CreateProject from "./components/projects/CreateProject";
+import Profile from './components/profile/Profile.js';
 import { useSelector } from "react-redux";
 import { isLoaded } from "react-redux-firebase";
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/createproject" component={CreateProject} />
+            <Route path="/profile/:id" component={Profile} />
           </Switch>
         </div>
       </AuthIsLoaded>

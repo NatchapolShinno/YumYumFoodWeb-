@@ -16,14 +16,19 @@ const SignedInLink = (props) => {
           &nbsp;New Restaurant
         </Button>
       </Nav.Link>
-      <Nav.Link href="/">
+
+      {console.log("/" + props.auth.uid)}
+
+      <Nav.Link href={"/profile/" + props.auth.uid}>
         <Button variant="light" disabled>
           Signed in as: &nbsp;
-          <a href="/" style={{ color: "GrayText" }}>
+          <a style={{ color: "GrayText" }}>
             {props.profile.lastName}&nbsp;&nbsp;{props.profile.firstName}
           </a>
         </Button>
       </Nav.Link>
+
+      
       <Nav.Link href="/">
         <Avatar>{props.profile.initials}</Avatar>
       </Nav.Link>
