@@ -20,7 +20,7 @@ const ProjectDetail = (props) => {
     const restaurantID = match.params.id;
     const newPost = { id, title, restaurantID};
     setPosts([newPost, ...posts]);
-    this.props.createReview(newPost);
+    createReview(newPost);
     console.log(newPost);
     id += 1;
   }
