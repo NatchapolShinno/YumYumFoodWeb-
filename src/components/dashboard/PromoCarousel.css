@@ -28,9 +28,25 @@
 
 h1  {
     margin-left: 5%;
-    margin-bottom: 2%;
 }
 
 table {
     width: 100% !important;
+}
+
+.promoHeader {
+    margin-top: 10vh;
+}
+
+.promoSubtitle {
+    margin-bottom: 3%;
+}
+
+.snapLeft {
+    margin-left: 5%;
+}
+
+.snapRight {
+    text-align: right;
+    margin-right: 5%;
 }

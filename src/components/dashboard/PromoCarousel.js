@@ -35,9 +35,16 @@ const responsive = {
 class PromoCarousel extends React.Component {
     render()
         {
+        var snapRight = this.props.snapRight;
+
+        /*FALSE is left, TRUE is right*/
+        var positionClass = snapRight ? "snapRight" : "snapLeft";
+        console.log(positionClass);
+
         return (
             <div>
-                <h1 className="header">{this.props.headline}</h1>
+                <h1 className={"header promoHeader " + positionClass}>{this.props.headline}</h1>
+                <p className={"promoSubtitle " + positionClass}>{this.props.subtitles}</p>
                 <Carousel responsive={responsive}>
                     <div className="carouselItem"><CarouselEntry restaurantName="McDonald's" rating="1" /></div>
                     <div className="carouselItem"><CarouselEntry restaurantName="Kurger Bing" rating="2" /></div>

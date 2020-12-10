@@ -40,13 +40,15 @@ class Dashboard extends Component {
           
         </div>
 
-        <PromoCarousel />
+        <PromoCarousel snapRight={true} headline="Check out these places!" subtitles="All the rage in Bangkok right now!"/>
+        <PromoCarousel snapRight={false} headline="The hottest promotions!" subtitles="Save your wallet mid-month with these promotions!" />
 
+        <center><h1 className="header" style={{margin: "3% 0 0 0"}}>Other Restaurants Near You</h1></center>
 
         <Container style={containerMargin}>
         <Row>
           <Col sm={10}></Col>
-          <Col sm={2} style={{ padding: "0 0 10px 0" }}>
+          <Col sm={2} style={{ padding: "0 0 10px 0"}}>
             <Notifications />
           </Col>
         </Row>
