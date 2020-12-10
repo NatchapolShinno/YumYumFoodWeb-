@@ -12,8 +12,6 @@ function Input({ addPost }) {
     const title = event.target.value;
     if (event.key === "Enter" && title) {
       addPost(title);
-      console.log(title);
-      createReview(title);
       setInput("");
     }
   }
@@ -36,9 +34,4 @@ Input.propTypes = {
   addPost: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createReview: (title) => dispatch(createReview(title)),
-  };
-};
-export default connect(null, mapDispatchToProps)(Input);
+export default Input;

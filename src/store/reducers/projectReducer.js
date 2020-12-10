@@ -42,7 +42,7 @@ const projectReducer = (state = initState, action) => {
         console.log("createProject_err", action.err);
         return state;
       case "CREATE_REVIEW":
-        console.log("createReview", action.title);
+        console.log("createReview", action.review);
         return state;
       case "CREATE_REVIEW_ERROR":
         console.log("createReview_err", action.err);

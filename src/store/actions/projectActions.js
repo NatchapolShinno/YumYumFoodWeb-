@@ -28,6 +28,7 @@ export const createReview = (review) => {
     firestore
       .collection("Reviews")
       .add({
+        ...review,
         title: review.title,
         restaurantID: review.restaurantID,
         reviewFirstName: profile.firstName,
