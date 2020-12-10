@@ -1,0 +1,27 @@
+.profileContainer {
+    padding-top: 10%;  
+    text-align: center;
+    font-family: 'Open Sans';
+    margin: 0 20% 0 20%;
+}
+
+.profileAvatar {
+    width: 200px !important;
+    height: 200px !important;
+    margin-bottom: 2%;
+}
+
+.nameHeader {
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 2.5em;
+    width: inherit;
+}
+
+.alignTextRight {
+    text-align: right;
+}
+
+Button {
+    font-family: 'Open Sans';
+}
