@@ -62,9 +62,6 @@ class Profile extends React.Component {
         this.setState({
           [e.target.id]: e.target.value,
         });
-
-        console.log("NEW STATE");
-        console.log(this.state);
       };
 
     handleSubmit = (e) => {
