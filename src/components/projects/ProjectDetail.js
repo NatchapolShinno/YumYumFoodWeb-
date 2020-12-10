@@ -20,7 +20,7 @@ const ProjectDetail = (props) => {
     const restaurantID = match.params.id;
     const newPost = { id, title, restaurantID};
     setPosts([newPost, ...posts]);
-    createReview(newPost);
+    props.createReview(newPost);
     console.log(newPost);
     id += 1;
   }
@@ -28,7 +28,6 @@ const ProjectDetail = (props) => {
     const updatedPosts = posts.filter((post) => post.id !== id);
     setPosts(updatedPosts);
   }
-
   if (restaurant) {
     return (
       <Container style={{ padding: "20px 0 0 0" }}>
@@ -112,7 +111,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    createReview: (title) => dispatch(createReview(title)),
+    createReview: (review) => dispatch(createReview(review)),
   };
 };
 export default compose(
