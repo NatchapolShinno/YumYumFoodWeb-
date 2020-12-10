@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, Container,Col } from "react-bootstrap";
+import { Form, Button, Container,Col, Alert } from "react-bootstrap";
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
 import { Redirect } from "react-router-dom";
@@ -30,6 +30,8 @@ class SignIn extends Component {
               <h1 className="header">Login to <br></br>YumYum</h1>
             </Form.Label>
 
+            {authError ? <Alert variant="danger"><p className="alert">Incorrect password / User account does not exist!</p></Alert> : null}
+
 
             <Form.Group controlId="email">
               <Form.Label>Email Address</Form.Label>
@@ -53,7 +55,7 @@ class SignIn extends Component {
             </Form.Group>
 
 
-            {authError ? <p class="text-danger">{authError}</p> : <br></br> } 
+            {/*{authError ? <p class="text-danger">{authError}</p> : <br></br> }*/}
 
             <center>
             <Button variant="success" type="submit">

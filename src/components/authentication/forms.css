@@ -4,3 +4,12 @@
     margin: auto;
     padding-top: 20vh;
 }
+
+.alert {
+    font-size: 0.9em;
+    padding: 0.5em 1em 0 1em !important;
+}
+
+.hidden {
+    visibility: hidden;
+}
