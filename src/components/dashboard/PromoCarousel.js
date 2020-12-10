@@ -10,8 +10,8 @@ import 'react-multi-carousel/lib/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './PromoCarousel.css';
 
-import McDonalds from './img/restaurants/mcdonalds.jpg';
-
+import McDonalds from '../../image/BurgerKing.jpg';
+  
 const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -61,7 +61,7 @@ class CarouselEntry extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr className="card">
                             <td className="header car-entry-header">{this.props.restaurantName}</td>
                             <td className="rating-bar"><StarRating rating={this.props.rating} /></td>
                         </tr>

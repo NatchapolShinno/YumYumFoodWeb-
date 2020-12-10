@@ -11,7 +11,7 @@ import Divider from './Divider'
 import Welcome from './welcome-message'
 import './Dashboard.css'
 import Jumbotron from 'react-bootstrap/Jumbotron'
-{/*import PromoCarousel from './PromoCarousel'*/}
+import PromoCarousel from './PromoCarousel'
 
 
 
@@ -39,6 +39,8 @@ class Dashboard extends Component {
           </Jumbotron>
           
         </div>
+
+        <PromoCarousel />
 
 
         <Container style={containerMargin}>
