@@ -35,14 +35,20 @@ const initState = {
 
 const projectReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'CREATE_RESTAURANT':
-            console.log('createProject',action.project);
-            return state;
-        case 'CREATE_RESTAURANT_ERROR':
-            console.log("createProject_err", action.err);
-            return state;
-        default:
-          return state;
+      case "CREATE_RESTAURANT":
+        console.log("createProject", action.project);
+        return state;
+      case "CREATE_RESTAURANT_ERROR":
+        console.log("createProject_err", action.err);
+        return state;
+      case "CREATE_REVIEW":
+        console.log("createReview", action.title);
+        return state;
+      case "CREATE_REVIEW_ERROR":
+        console.log("createReview_err", action.err);
+        return state;
+      default:
+        return state;
     }
 };
 

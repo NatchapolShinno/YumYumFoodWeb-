@@ -1,12 +1,14 @@
 export const createProject = (project) => {
-    return(dispatch, getState, { gerFirebase, getFirestore}) => {
+    return(dispatch, getState, { getFirebase, getFirestore}) => {
         const firestore = getFirestore();
+        const profile = getState().firebase.profile;
+        const authorID = getState().firebase.auth.uid;
         firestore.collection('Restaurants').add({
             ...project,
-            authorFirstName: 'net',
-            authorLastName: 'lastnet',
-            authorID: 12345,
-            createdAt: new Date()
+            authorFirstName: profile.firstName,
+            authorLastName: profile.lastName,
+            authorID: authorID,
+            createdAt: new Date(),
 
         }).then(() => {
             dispatch({ type:"CREATE_RESTAURANT", project});
@@ -16,4 +18,28 @@ export const createProject = (project) => {
         
     }
 
+};
+
+export const createReview = (review) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const authorID = getState().firebase.auth.uid;
+    firestore
+      .collection("Reviews")
+      .add({
+        title: review.title,
+        restaurantID: review.restaurantID,
+        reviewFirstName: profile.firstName,
+        reviewLastName: profile.lastName,
+        reviewID: authorID,
+        createdAt: new Date(),
+      })
+      .then(() => {
+        dispatch({ type: "CREATE_REVIEW", review });
+      })
+      .catch((err) => {
+        dispatch({ type: "CREATE_REVIEW_ERROR", err });
+      });
+  };
 };

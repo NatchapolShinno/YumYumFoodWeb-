@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Form, Button, Container,Col } from "react-bootstrap";
+import { Form, Button, Container,Col,Link } from "react-bootstrap";
 import { createProject } from '../../store/actions/projectActions'
 import { connect } from 'react-redux'
+
 class CreateProject extends Component {
   state = {
     restaurantName: " ",
@@ -19,6 +20,7 @@ class CreateProject extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createProject(this.state);
+    this.props.history.push('/');
   };
   render() {
     return (
@@ -86,6 +88,7 @@ class CreateProject extends Component {
                 accept="image"
               />
             </Form.Group>
+
             <Button variant="primary" type="submit">
               CREATE RESTAURANT
             </Button>

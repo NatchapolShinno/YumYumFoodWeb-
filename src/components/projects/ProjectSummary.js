@@ -34,17 +34,18 @@ const ProjectSummary = ({project}) => {
         </ListGroupItem>
       </ListGroup>
       <Card.Body>
-
-          <Card.Link href={"/project/" + project.id}>
-            <MdRateReview /> Write Review &nbsp;
-          </Card.Link>
+        <Card.Link href={"/project/" + project.id}>
+          <MdRateReview /> Write Review &nbsp;
+        </Card.Link>
 
         <Card.Link href="#">
           <IoMdShareAlt /> Share
         </Card.Link>
       </Card.Body>
       <Card.Footer>
-        <small className="text-muted">Last updated 3 mins ago</small>
+        {" "}
+  <small className="text-muted">{project.authorFirstName} {project.authorLastName}</small>
+        <small className="text-muted">{project.createAt}</small>
       </Card.Footer>
     </Card>
   );
