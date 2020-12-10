@@ -36,3 +36,8 @@
     top: 65%;
     z-index: 2;
 }
+
+.dividerLine {
+    width: 30vw;
+    border-top: 1px solid #bbb;
+}

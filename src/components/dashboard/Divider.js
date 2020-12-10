@@ -56,7 +56,8 @@ class Divider extends React.Component
                 className={textPromptClass}
                 onClick={() => this.scrollDown(this.scrollRef)}
                 >
-                    Scroll down to find out more
+                <hr class="solid dividerLine"></hr>
+                Scroll down to find out more
                 </p>
 
                 {/*DOWN ARROW*/}
