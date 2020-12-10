@@ -26,7 +26,7 @@ export default () => {
     initialState,
     compose(
       applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-      reduxFirestore(firebase, firebaseConfig)
+      reduxFirestore(firebase, firebaseConfig),
     )
   );
 };
