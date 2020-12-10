@@ -1,3 +1,11 @@
 .jumbotron {
     height: 100vh;
+    /*background-image: url("https://www.photoblog.com/learn/wp-content/uploads/2018/11/weeattogether.com-2.jpg");*/
+    /*mask-image: url('../../image/circle.svg');*/
+    mask-size: 200vh;
+    mask-repeat: no-repeat;
+    mask-position: inherit;
+    background-position: center;
+    background-size: cover;
+    /*box-shadow:inset 0 0 0 1000px rgba(100, 100, 100, 0.5);*/
 }

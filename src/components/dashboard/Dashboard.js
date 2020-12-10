@@ -30,13 +30,14 @@ class Dashboard extends Component {
       <div>
 
         <div>
-          <Jumbotron>
+        <Divider />
+          <Jumbotron fluid>
             <div style={paddingtop}>
                 <Welcome />
                 <Headline />
-                <Divider />
             </div>
           </Jumbotron>
+          
         </div>
 
 

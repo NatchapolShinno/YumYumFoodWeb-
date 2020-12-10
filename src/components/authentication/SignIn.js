@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authActions'
 import { Redirect } from "react-router-dom";
 
+import './forms.css';
+
 class SignIn extends Component {
   state = {
       email:'',
@@ -22,24 +24,24 @@ class SignIn extends Component {
     const { auth, authError } = this.props;
     if (auth.uid) return <Redirect to="/" />;
     return (
-      <Container style={{ padding: "20px 0 0 0" }}>
-        <Col sm={6}>
+      <div className="formContainer">
           <Form onSubmit={this.handleSubmit}>
             <Form.Label style={{ fontSize: "25px" }}>
-              <b>LOGIN</b>
+              <h1 className="header">Login to <br></br>YumYum</h1>
             </Form.Label>
+
+
             <Form.Group controlId="email">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email Address</Form.Label>
               <Form.Control
                 type="email"
                 id="email"
                 onChange={this.handleChange}
                 placeholder="Enter email"
               />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
+
+
             <Form.Group controlId="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -49,13 +51,18 @@ class SignIn extends Component {
                 placeholder="Password"
               />
             </Form.Group>
-            {authError ? <p class="text-danger">{authError}</p> : null}
-            <Button variant="primary" type="submit">
+
+
+            {authError ? <p class="text-danger">{authError}</p> : <br></br> } 
+
+            <center>
+            <Button variant="success" type="submit">
               Login
             </Button>
+            </center>
+
           </Form>
-        </Col>
-      </Container>
+      </div>
     );
   }
 }

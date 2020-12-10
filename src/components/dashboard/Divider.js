@@ -46,7 +46,7 @@ class Divider extends React.Component
         var arrowPromptClass = this.state.hide ? 'hide' : '';
 
         return (
-            <div>
+            <div className="dividerBack">
                 <p 
                 className={textPromptClass}
                 >

@@ -28,7 +28,7 @@ const SignedInLink = (props) => {
         <Avatar>{props.profile.initials}</Avatar>
       </Nav.Link>
       <Nav.Link href="/">
-        <Button variant="light" onClick={props.signOut}>
+        <Button variant="contained" color="secondary" disableElevation onClick={props.signOut}>
           <IoIosLogOut fontSize="large" />
           &nbsp;Log Out
         </Button>

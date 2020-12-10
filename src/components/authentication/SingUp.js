@@ -4,6 +4,8 @@ import {signUp} from '../../store/actions/authActions'
 import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom";
 
+import './forms.css'
+
 class SignUp extends Component {
   state = {
     email: " ",
@@ -26,12 +28,12 @@ class SignUp extends Component {
     const { auth, authError } = this.props;
     if (auth.uid) return <Redirect to = '/'/>
     return (
-      <Container style={{ padding: "20px 0 0 0" }}>
-        <Col sm={8}>
+      <div className="formContainer">
           <Form onSubmit={this.handleSubmit}>
             <Form.Label style={{ fontSize: "25px" }}>
-              <b>SIGN UP</b>
+              <h1 className="header">Sign Up</h1>
             </Form.Label>
+
             <Form.Group controlId="name">
               <Form.Row>
                 <Col>
@@ -52,6 +54,7 @@ class SignUp extends Component {
                 </Col>
               </Form.Row>
             </Form.Group>
+
             <Form.Group controlId="email">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -102,8 +105,7 @@ class SignUp extends Component {
             </Button>
             
           </Form>
-        </Col>
-      </Container>
+      </div>
     );
   }
 }
