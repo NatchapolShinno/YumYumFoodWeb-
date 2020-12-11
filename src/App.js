@@ -9,10 +9,15 @@ import CreateProject from "./components/projects/CreateProject";
 import Profile from './components/profile/Profile.js';
 import { useSelector } from "react-redux";
 import { isLoaded } from "react-redux-firebase";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { CenterFocusStrong } from "@material-ui/icons";
+
+import './index.css';
 
 function AuthIsLoaded({ children }) {
+
   const auth = useSelector((state) => state.firebase.auth);
-  if (!isLoaded(auth)) return <div>splash screen...</div>;
+  if (!isLoaded(auth)) return (<div className="splash"><CircularProgress size="10em" /></div>);
   return children;
 }
 

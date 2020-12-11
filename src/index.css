@@ -21,10 +21,18 @@ code {
   font-weight: 900;
 }
 
+.subheader {
+  font-family: 'Open Sans';
+}
+
 p {
   font-family: 'Open Sans', sans-serif;
 }
 
 label {
   font-family: 'Open Sans', sans-serif;
+}
+
+.splash {
+  margin: calc(50vh - 5em) 0 0 calc(50vw - 5em);
 }

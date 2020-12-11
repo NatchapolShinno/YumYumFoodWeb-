@@ -16,8 +16,8 @@ const ProjectSummary = ({project}) => {
         fluid
       />
       <Card.Body>
-        <Card.Title className="noWrap">
-          <b>{project.restaurantName}</b>
+        <Card.Title className="noWrap subheader">
+          <a href={"/project/" + project.id} className="restaurantTitle">{project.restaurantName}</a>
         </Card.Title>
         <Card.Text className="noWrap">
           <b>Address:</b> {project.address}

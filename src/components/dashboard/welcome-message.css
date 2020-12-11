@@ -1,7 +1,7 @@
 .welcome  {
     text-align: center;
     /*font-size: calc(10px + 5vmin);*/
-    margin-bottom: 3%;
+    margin: 10vh 0 3% 10vw;
 }
 
 .welcome p {

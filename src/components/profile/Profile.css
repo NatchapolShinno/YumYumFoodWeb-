@@ -25,3 +25,7 @@
 Button {
     font-family: 'Open Sans';
 }
+
+.splash {
+    margin: calc(50vh - 5em) 0 0 calc(50vw - 5em);
+}
