@@ -3,6 +3,8 @@ import { Form, Button, Container,Col } from "react-bootstrap";
 import { createProject } from '../../store/actions/projectActions'
 import { connect } from 'react-redux'
 
+import './CreateProject.css';
+
 class CreateProject extends Component {
   state = {
     restaurantName: " ",
@@ -24,15 +26,15 @@ class CreateProject extends Component {
   };
   render() {
     return (
-      <Container style={{ padding: "20px 0 0 0" }}>
-        <Col sm={8}>
+      <div style={{fontFamily: 'Open Sans'}}>
+        <Col sm={8} style={{marginLeft: "20%", marginRight: "20%", padding: "5% 0 0 0"}}>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Label style={{ fontSize: "25px" }}>
-              <b>CREATE RESTAURANT</b>
+            <Form.Label style={{ fontSize: "30px", textAlign: "center" }}>
+              <b className="header">Register a Restaurant</b>
             </Form.Label>
 
             <Form.Group controlId="restaurantName">
-              <Form.Label>Restaurant's Name</Form.Label>
+              <Form.Label>Restaurant Name</Form.Label>
               <Form.Control
                 type="text"
                 id="restaurantName"
@@ -52,7 +54,7 @@ class CreateProject extends Component {
               />
             </Form.Group>
             <Form.Group controlId="openHours">
-              <Form.Label>Enter openhours</Form.Label>
+              <Form.Label>Opening Hours</Form.Label>
               <Form.Control
                 type="text"
                 id="openHours"
@@ -62,7 +64,7 @@ class CreateProject extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Price and Type of Restaurant</Form.Label>
+              <Form.Label>Price Level and Type of Restaurant</Form.Label>
               <Form.Control
                 type="text"
                 id="priceType"
@@ -93,12 +95,15 @@ class CreateProject extends Component {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-              CREATE RESTAURANT
+            <center>
+            <Button variant="primary" type="submit" style={{borderRadius: "20px"}}>
+              Register Restaurant
             </Button>
+            </center>
+            
           </Form>
         </Col>
-      </Container>
+        </div>
     );
   }
 }
