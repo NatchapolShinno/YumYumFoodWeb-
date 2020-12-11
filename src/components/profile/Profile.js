@@ -176,7 +176,7 @@ class Profile extends React.Component {
                     <Button variant={this.state.editing ? "danger" : "primary"} onClick={this.handleEdit.bind(this)}>
                         {this.state.editing ? "Quit Editing" : "Edit Profile"}
                     </Button>
-
+                    &nbsp;
                     <Button type="submit" variant={this.state.editing ? "success" : "secondary"} disabled={this.state.editing ? false : true}>
                         Submit Changes
                     </Button>
