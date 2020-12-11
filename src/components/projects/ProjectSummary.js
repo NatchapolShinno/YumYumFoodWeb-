@@ -9,12 +9,14 @@ import './ProjectSummary.css';
 const ProjectSummary = ({project}) => {
   return (
     <Card style={{ width: "21rem" }}>
+      <a href={"/project/" + project.id} className="restaurantTitle">
       <Card.Img
         variant="top"
         src={Burger}
         style={{ width: "100%", height: "14rem" }}
         fluid
       />
+      </a>
       <Card.Body>
         <Card.Title className="noWrap subheader">
           <a href={"/project/" + project.id} className="restaurantTitle">{project.restaurantName}</a>
