@@ -3,7 +3,6 @@ import Burger from "../../image/BurgerKing.jpg";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { IoMdShareAlt } from "react-icons/io";
 import { MdRateReview } from "react-icons/md";
-import { Link } from 'react-router-dom';
 
 import './ProjectSummary.css';
 

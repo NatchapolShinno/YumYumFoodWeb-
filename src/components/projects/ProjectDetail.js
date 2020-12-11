@@ -95,7 +95,8 @@ const mapStateToProps = (state, ownProps) => {
   const restaurant = restaurants ? restaurants[id] : null;
   return {
     restaurant: restaurant,
-    reviewsQuery: reviews,
+    reviews: reviews,
+    ID: id,
   };
 };
 const mapDispatchToProps = (dispatch) => {

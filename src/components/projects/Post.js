@@ -1,18 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import { render } from "@testing-library/react";
+import { Container } from "react-bootstrap";
+import onePost from "./onePost";
 
-function Post({reviews}) {
+export default function Post({ reviews }) {
+
+
   return (
-    
-    <div className="Post">
-      <div className="Post__title">{reviews.title}</div>
+    <div>
+      <onePost />
     </div>
   );
-  
 }
-Post.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  deletePost: PropTypes.func.isRequired,
-};
-export default Post;
