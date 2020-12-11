@@ -7,6 +7,18 @@
     max-width: 300px;
 }
 
+.restaurantTitle {
+    text-decoration: none !important;
+    color: black !important;
+    font-family: 'Open Sans';
+    font-weight: 600;
+}
+
+.restaurantTitle:hover {
+    text-decoration: none;
+    color: rgb(66, 66, 66);
+}
+
 .headerBack {
     z-index: -99;
     position: relative;
