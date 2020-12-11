@@ -32,30 +32,30 @@ const responsive = {
     }
   };
 
-class PromoCarousel extends React.Component {
-    render()
-        {
-        var snapRight = this.props.snapRight;
+const PromoCarousel = ({projects, snapRight, headline, subtitles}) => {
+        var snapRight = snapRight;
 
         /*FALSE is left, TRUE is right*/
         var positionClass = snapRight ? "snapRight" : "snapLeft";
 
         return (
-            <div>
-                <h1 className={"header promoHeader " + positionClass}>{this.props.headline}</h1>
-                <p className={"promoSubtitle " + positionClass}>{this.props.subtitles}</p>
-                <div className={"headerBack " + positionClass}></div>
-                <div className={"headerBack light " + positionClass}></div>
-                <hr className={"solid lineDiv " + positionClass}></hr>
-                <Carousel responsive={responsive}>
-                    <div className="carouselItem"><CarouselEntry restaurantName="McDonald's" rating="1" /></div>
-                    <div className="carouselItem"><CarouselEntry restaurantName="Kurger Bing" rating="2" /></div>
-                    <div className="carouselItem"><CarouselEntry restaurantName="Xetas Chicken" rating="3" /></div>
-                    <div className="carouselItem"><CarouselEntry restaurantName="McDonald's" rating="4" /></div>
-                </Carousel>;
-            </div>
+                <div>
+                    <h1 className={"header promoHeader " + positionClass}>{headline}</h1>
+                    <p className={"promoSubtitle " + positionClass}>{subtitles}</p>
+                    <div className={"headerBack " + positionClass}></div>
+                    <div className={"headerBack light " + positionClass}></div>
+                    <hr className={"solid lineDiv " + positionClass}></hr>
+                    {projects ? 
+                    <Carousel responsive={responsive}>
+                    {projects && projects.map(project =>{  
+                        console.log(project.id);
+                        return(
+                        <div className="carouselItem"><CarouselEntry restaurantName = {project.restaurantName} projectId={project.id} description={project.address} rating="4" /></div>
+                        )
+                    })}
+                    </Carousel> : null}
+                </div>
         );
-        }
 }
 
 class CarouselEntry extends React.Component {
@@ -63,19 +63,23 @@ class CarouselEntry extends React.Component {
         {
         return (
             <div>
-                <Table>
+                <Table style={{textAlign: "left"}}>
                     <thead>
                         <tr>
+                            <a href={"/project/" + this.props.projectId}>
                             <Image src={McDonalds} className="carouselImage" fluid />
-                        </tr>
+                            </a>
+                        </tr>   
                     </thead>
                     <tbody>
                         <tr className="card">
-                            <td className="header car-entry-header">{this.props.restaurantName}</td>
+                            <td className="header car-entry-header" className="restaurantTitle"><a href={"/project/" + this.props.projectId}>{this.props.restaurantName}</a></td>
                             <td className="rating-bar"><StarRating rating={this.props.rating} /></td>
                         </tr>
                         <tr>
-                            <p>{this.props.description}</p>
+                            <td>
+                            <p><b>Address: </b>{this.props.description}</p>
+                            </td>
                         </tr>
                     </tbody>
                 </Table>
@@ -137,6 +141,5 @@ CarouselEntry.defaultProps = {
     description: "Lorem ipsum dolor sit amet consecteteur adipiscing",
     rating: "5"
 }
-
 
 export default PromoCarousel;
