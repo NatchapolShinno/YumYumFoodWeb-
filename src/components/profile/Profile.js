@@ -176,22 +176,17 @@ class Profile extends React.Component {
                       readOnly={this.state.editing ? false : true}
                       required
                     />
-                  </Form.Group>
 
-                  <Button
-                    variant={this.state.editing ? "danger" : "primary"}
-                    onClick={this.handleEdit.bind(this)}
-                  >
-                    {this.state.editing ? "Quit Editing" : "Edit Profile"}
-                  </Button>
+                    </Form.Group>
 
-                  <Button
-                    type="submit"
-                    variant={this.state.editing ? "success" : "secondary"}
-                    disabled={this.state.editing ? false : true}
-                  >
-                    Submit Changes
-                  </Button>
+
+                    <Button variant={this.state.editing ? "danger" : "primary"} onClick={this.handleEdit.bind(this)}>
+                        {this.state.editing ? "Quit Editing" : "Edit Profile"}
+                    </Button>
+                    &nbsp;
+                    <Button type="submit" variant={this.state.editing ? "success" : "secondary"} disabled={this.state.editing ? false : true}>
+                        Submit Changes
+                    </Button>
                 </Form>
               </div>
             );

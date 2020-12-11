@@ -48,3 +48,35 @@
 .Post__delete:focus {
   outline:none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scrollButton {
+  border-radius: 150px;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  background-color: #ff5f3e;
+}
+
+.scrollButton:hover {
+  background-color: #ff8168;
+}
+
+.scrollButton:focus {
+  background-color: #ff5f3e;
+}
+
+.scrollButton, .scrollButton:hover, .scrollButton:focus {
+  box-shadow: none;
+  outline: none !important;
+  color: white;
+}
+
+.subtitleText {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  font-size: 10pt;
+}
