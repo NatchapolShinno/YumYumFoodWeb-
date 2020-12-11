@@ -88,7 +88,7 @@ const ProjectDetail = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
+  console.log(ownProps);
   const id = ownProps.match.params.id;
   const restaurants = state.firestore.data.Restaurants;
   const reviews = state.firestore.ordered.Reviews;
@@ -106,5 +106,8 @@ const mapDispatchToProps = (dispatch) => {
 };
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect(() => ["Restaurants","Reviews"]),
+  firestoreConnect(() => ["Restaurants"]),
+  firestoreConnect((ownProps) => [
+    { collection: "Reviews", where: [["restaurantID", "==", ownProps.match.params.id]] },
+  ])
 )(ProjectDetail);
