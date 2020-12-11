@@ -4,3 +4,15 @@
     text-overflow: ellipsis;
     word-wrap: break-word;
 }
+
+.restaurantTitle {
+    text-decoration: none;
+    color: black;
+    font-family: 'Open Sans';
+    font-weight: 600;
+}
+
+.restaurantTitle:hover {
+    text-decoration: none;
+    color: rgb(66, 66, 66);
+}
