@@ -1,14 +1,15 @@
-import React from 'react';
-import { render } from "@testing-library/react";
-import { Container } from "react-bootstrap";
-import onePost from "./onePost";
+import React from "react";
+import PropTypes from "prop-types";
+import PostElement from './PostElement';
 
-export default function Post({ reviews }) {
-
-
-  return (
+export default function Post({reviews}) {
+  return(
     <div>
-      <onePost />
+      {reviews && reviews.map(review => {
+        return(
+          <PostElement review={review} />
+        )
+      })}
     </div>
   );
 }
