@@ -42,6 +42,7 @@ class SignUp extends Component {
                   id="firstName"
                   onChange={this.handleChange}
                   placeholder="Firstname"
+                  pattern="[A-Za-z]{0,}"
                   required
                 />
               </Col>
@@ -51,6 +52,7 @@ class SignUp extends Component {
                   id="lastName"
                   onChange={this.handleChange}
                   placeholder="Lastname"
+                  pattern="[A-Za-z]{0,}"
                   required
                 />
               </Col>

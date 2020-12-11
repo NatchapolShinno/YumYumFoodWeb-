@@ -111,6 +111,7 @@ class Profile extends React.Component {
                           className="nameHeader alignTextRight"
                           plaintext={this.state.editing ? false : true}
                           disabled={this.state.editing ? false : true}
+                          pattern="[A-Za-z]{0,}"
                           required
                         />
                       </Col>
@@ -122,12 +123,12 @@ class Profile extends React.Component {
                           className="nameHeader"
                           plaintext={this.state.editing ? false : true}
                           disabled={this.state.editing ? false : true}
+                          pattern="[A-Za-z]{0,}"
                           required
                         />
                       </Col>
                     </Form.Row>
                   </Form.Group>
-
                   {/*  <Form.Group controlId="email">
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control
@@ -158,7 +159,7 @@ class Profile extends React.Component {
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
                       type="tel"
-                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                      pattern="[0]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}"
                       id="phone"
                       onChange={this.handleChange}
                       defaultValue={this.props.users.phone}
@@ -176,17 +177,21 @@ class Profile extends React.Component {
                       readOnly={this.state.editing ? false : true}
                       required
                     />
-
-                    </Form.Group>
-
-
-                    <Button variant={this.state.editing ? "danger" : "primary"} onClick={this.handleEdit.bind(this)}>
-                        {this.state.editing ? "Quit Editing" : "Edit Profile"}
-                    </Button>
-                    &nbsp;
-                    <Button type="submit" variant={this.state.editing ? "success" : "secondary"} disabled={this.state.editing ? false : true}>
-                        Submit Changes
-                    </Button>
+                  </Form.Group>
+                  <Button
+                    variant={this.state.editing ? "danger" : "primary"}
+                    onClick={this.handleEdit.bind(this)}
+                  >
+                    {this.state.editing ? "Quit Editing" : "Edit Profile"}
+                  </Button>
+                  &nbsp;
+                  <Button
+                    type="submit"
+                    variant={this.state.editing ? "success" : "secondary"}
+                    disabled={this.state.editing ? false : true}
+                  >
+                    Submit Changes
+                  </Button>
                 </Form>
               </div>
             );
