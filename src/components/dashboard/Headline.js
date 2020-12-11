@@ -24,7 +24,7 @@ class Headline extends React.Component {
         {
         return (
             <div className="headline" style={marginleft}>
-                <Button variant="success" href="discover" className="discover-btn">Discover</Button>
+                <Button variant="success" href="/" className="discover-btn">Discover</Button>
                 <p className="headline">{selectHeadline}</p>
             </div>
         );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Notifications from './Notification';
+/*import Notifications from './Notification';*/
 import ProjectList from '../projects/ProjectList'
 import { connect } from 'react-redux'
 import { firestoreConnect } from "react-redux-firebase";
@@ -48,9 +48,6 @@ class Dashboard extends Component {
         <Container style={containerMargin}>
         <Row>
           <Col sm={10}></Col>
-          <Col sm={2} style={{ padding: "0 0 10px 0"}}>
-            <Notifications />
-          </Col>
         </Row>
         <Row>
           <Col sm={1}></Col>
