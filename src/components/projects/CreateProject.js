@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button, Container,Col,Link } from "react-bootstrap";
+import { Form, Button, Container,Col } from "react-bootstrap";
 import { createProject } from '../../store/actions/projectActions'
 import { connect } from 'react-redux'
 
@@ -38,6 +38,7 @@ class CreateProject extends Component {
                 id="restaurantName"
                 onChange={this.handleChange}
                 placeholder="Enter name"
+                required
               />
             </Form.Group>
             <Form.Group>
@@ -47,6 +48,7 @@ class CreateProject extends Component {
                 id="address"
                 onChange={this.handleChange}
                 placeholder="Enter address"
+                required
               />
             </Form.Group>
             <Form.Group controlId="openHours">
@@ -56,6 +58,7 @@ class CreateProject extends Component {
                 id="openHours"
                 onChange={this.handleChange}
                 placeholder="Enter open hours"
+                required
               />
             </Form.Group>
             <Form.Group>
@@ -65,16 +68,17 @@ class CreateProject extends Component {
                 id="priceType"
                 onChange={this.handleChange}
                 placeholder="($-$$$) - Type of restaurant"
+                required
               />
             </Form.Group>
             <Form.Group controlId="phone">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="tel"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 id="phone"
                 onChange={this.handleChange}
                 placeholder="0xx-xxx-xxxx"
+                required
               />
             </Form.Group>
             <Form.Group controlId="openHours">
