@@ -5,6 +5,8 @@ import { IoMdShareAlt } from "react-icons/io";
 import { MdRateReview } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
+import './ProjectSummary.css';
+
 const ProjectSummary = ({project}) => {
   return (
     <Card style={{ width: "21rem" }}>
@@ -15,10 +17,10 @@ const ProjectSummary = ({project}) => {
         fluid
       />
       <Card.Body>
-        <Card.Title>
+        <Card.Title className="noWrap">
           <b>{project.restaurantName}</b>
         </Card.Title>
-        <Card.Text>
+        <Card.Text className="noWrap">
           <b>Address:</b> {project.address}
         </Card.Text>
       </Card.Body>
