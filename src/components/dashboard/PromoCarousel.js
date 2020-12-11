@@ -20,7 +20,7 @@ const responsive = {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 4
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -39,12 +39,13 @@ class PromoCarousel extends React.Component {
 
         /*FALSE is left, TRUE is right*/
         var positionClass = snapRight ? "snapRight" : "snapLeft";
-        console.log(positionClass);
 
         return (
             <div>
                 <h1 className={"header promoHeader " + positionClass}>{this.props.headline}</h1>
                 <p className={"promoSubtitle " + positionClass}>{this.props.subtitles}</p>
+                <div className={"headerBack " + positionClass}></div>
+                <div className={"headerBack light " + positionClass}></div>
                 <hr className={"solid lineDiv " + positionClass}></hr>
                 <Carousel responsive={responsive}>
                     <div className="carouselItem"><CarouselEntry restaurantName="McDonald's" rating="1" /></div>
