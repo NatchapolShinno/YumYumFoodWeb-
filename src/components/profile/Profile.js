@@ -4,6 +4,7 @@ import { Form, Button, Container,Col } from "react-bootstrap";
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Icon, Avatar } from "@material-ui/core";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import {updateProfile} from '../../store/actions/profileActions';
 
@@ -187,7 +188,7 @@ class Profile extends React.Component {
         else {
             return(
                 <div>
-                    Loading profile...
+                    <CircularProgress size="10em" className="splash">Loading Profile..</CircularProgress>
                 </div>
             )
         }

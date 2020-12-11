@@ -29,7 +29,7 @@ const SignedInLink = (props) => {
       </Nav.Link>
 
       
-      <Nav.Link href="/">
+      <Nav.Link href={"/profile/" + props.auth.uid}>
         <Avatar>{props.profile.initials}</Avatar>
       </Nav.Link>
       <Nav.Link href="/">
