@@ -92,37 +92,41 @@ class Profile extends React.Component {
                 });
                 }
 
-            return(
-                <div className="profileContainer">
-                    <center><Avatar className="profileAvatar">{this.props.users.initials}</Avatar></center>
-                    
-                    <Form onSubmit={this.handleSubmit}>
+            return (
+              <div className="profileContainer">
+                <center>
+                  <Avatar className="profileAvatar">
+                    {this.props.users.initials}
+                  </Avatar>
+                </center>
 
-                    <Form.Group controlId="name">
+                <Form onSubmit={this.handleSubmit}>
+                  <Form.Group controlId="name">
                     <Form.Row>
-                        <Col>
+                      <Col>
                         <Form.Control
-                            id="firstName"
-                            onChange={this.handleChange.bind(this)}
-                            defaultValue={this.props.users.firstName}
-                            className="nameHeader alignTextRight"
-                            plaintext={this.state.editing ? false : true}
-                            disabled={this.state.editing ? false : true}
+                          id="firstName"
+                          onChange={this.handleChange.bind(this)}
+                          defaultValue={this.props.users.firstName}
+                          className="nameHeader alignTextRight"
+                          plaintext={this.state.editing ? false : true}
+                          disabled={this.state.editing ? false : true}
+                          required
                         />
-                        </Col>
-                        <Col>
-
+                      </Col>
+                      <Col>
                         <Form.Control
-                            id="lastName"
-                            onChange={this.handleChange}
-                            defaultValue={this.props.users.lastName}
-                            className="nameHeader"
-                            plaintext={this.state.editing ? false : true}
-                            disabled={this.state.editing ? false : true}
+                          id="lastName"
+                          onChange={this.handleChange}
+                          defaultValue={this.props.users.lastName}
+                          className="nameHeader"
+                          plaintext={this.state.editing ? false : true}
+                          disabled={this.state.editing ? false : true}
+                          required
                         />
-                        </Col>
+                      </Col>
                     </Form.Row>
-                    </Form.Group>
+                  </Form.Group>
 
                   {/*  <Form.Group controlId="email">
                     <Form.Label>Email Address</Form.Label>
@@ -150,39 +154,46 @@ class Profile extends React.Component {
                         Must be 6-20 characters long.
                     </Form.Text>
                     </Form.Group>*/}
-                    <Form.Group controlId="phone">
+                  <Form.Group controlId="phone">
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
-                        type="tel"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                        id="phone"
-                        onChange={this.handleChange}
-                        defaultValue={this.props.users.phone}
-                        readOnly={this.state.editing ? false : true}
+                      type="tel"
+                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                      id="phone"
+                      onChange={this.handleChange}
+                      defaultValue={this.props.users.phone}
+                      readOnly={this.state.editing ? false : true}
+                      required
                     />
-                    </Form.Group>
-                    <Form.Group controlId="DOB">
+                  </Form.Group>
+                  <Form.Group controlId="DOB">
                     <Form.Label>Date of Birth</Form.Label>
                     <Form.Control
-                        type="date"
-                        id="DOB"
-                        onChange={this.handleChange}
-                        defaultValue={this.props.users.DOB}
-                        readOnly={this.state.editing ? false : true}
+                      type="date"
+                      id="DOB"
+                      onChange={this.handleChange}
+                      defaultValue={this.props.users.DOB}
+                      readOnly={this.state.editing ? false : true}
+                      required
                     />
-                    </Form.Group>
+                  </Form.Group>
 
+                  <Button
+                    variant={this.state.editing ? "danger" : "primary"}
+                    onClick={this.handleEdit.bind(this)}
+                  >
+                    {this.state.editing ? "Quit Editing" : "Edit Profile"}
+                  </Button>
 
-                    <Button variant={this.state.editing ? "danger" : "primary"} onClick={this.handleEdit.bind(this)}>
-                        {this.state.editing ? "Quit Editing" : "Edit Profile"}
-                    </Button>
-
-                    <Button type="submit" variant={this.state.editing ? "success" : "secondary"} disabled={this.state.editing ? false : true}>
-                        Submit Changes
-                    </Button>
-                    
+                  <Button
+                    type="submit"
+                    variant={this.state.editing ? "success" : "secondary"}
+                    disabled={this.state.editing ? false : true}
+                  >
+                    Submit Changes
+                  </Button>
                 </Form>
-                </div>
+              </div>
             );
             }
         else {

@@ -89,6 +89,7 @@ class SignUp extends Component {
             <Form.Control
               type="tel"
               id="phone"
+              pattern="[0]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}"
               onChange={this.handleChange}
               placeholder="0xx-xxx-xxxx"
               required

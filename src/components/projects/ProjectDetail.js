@@ -13,6 +13,7 @@ let id = 1;
 
 const ProjectDetail = (props) => {
   const { restaurant, match, reviews } = props;
+  console.log(reviews);
   const [posts, setPosts] = useState([]);
   function addPost(title) {
     const restaurantID = match.params.id;
@@ -75,6 +76,7 @@ const ProjectDetail = (props) => {
           </Card>
         </Row>
         <Input addPost={addPost} />
+
         <Post reviews={reviews} />
       </Container>
     );
@@ -108,6 +110,10 @@ export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect(() => ["Restaurants"]),
   firestoreConnect((ownProps) => [
-    { collection: "Reviews", where: [["restaurantID", "==", ownProps.match.params.id]] },
+    {
+      collection: "Reviews",
+      where: [["restaurantID", "==", ownProps.match.params.id]],
+      
+    },
   ])
 )(ProjectDetail);
