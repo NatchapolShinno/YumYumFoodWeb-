@@ -9,12 +9,10 @@ import Post from "../projects/Post";
 import "../projects/review.css";
 import { createReview } from "../../store/actions/projectActions";
 
-
 let id = 1;
 
 const ProjectDetail = (props) => {
-  const { restaurant, match } = props;
-
+  const { restaurant, match, reviews } = props;
   const [posts, setPosts] = useState([]);
   function addPost(title) {
     const restaurantID = match.params.id;
@@ -23,11 +21,7 @@ const ProjectDetail = (props) => {
     props.createReview(newPost);
     console.log(newPost);
     id += 1;
-  }
-  function deletePost(id) {
-    const updatedPosts = posts.filter((post) => post.id !== id);
-    setPosts(updatedPosts);
-  }
+  } 
   if (restaurant) {
     return (
       <Container style={{ padding: "20px 0 0 0" }}>
@@ -81,14 +75,7 @@ const ProjectDetail = (props) => {
           </Card>
         </Row>
         <Input addPost={addPost} />
-        {posts.map((post) => (
-          <Post
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            deletePost={deletePost}
-          />
-        ))}
+        <Post reviews={reviews} />
       </Container>
     );
   } else {
@@ -101,12 +88,14 @@ const ProjectDetail = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  //console.log(state);
+  console.log(state);
   const id = ownProps.match.params.id;
   const restaurants = state.firestore.data.Restaurants;
+  const reviews = state.firestore.ordered.Reviews;
   const restaurant = restaurants ? restaurants[id] : null;
   return {
     restaurant: restaurant,
+    reviewsQuery: reviews,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -116,5 +105,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect(() => ["Restaurants"])
+  firestoreConnect(() => ["Restaurants","Reviews"]),
 )(ProjectDetail);
