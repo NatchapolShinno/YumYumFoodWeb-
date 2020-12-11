@@ -5,6 +5,7 @@ import PostElement from './PostElement';
 export default function Post({reviews}) {
   return(
     <div>
+      <hr></hr>
       {reviews && reviews.map(review => {
         return(
           <PostElement review={review} />
