@@ -21,6 +21,10 @@ code {
   font-weight: 900;
 }
 
+.subheader {
+  font-family: 'Open Sans';
+}
+
 p {
   font-family: 'Open Sans', sans-serif;
 }
