@@ -16,18 +16,23 @@ class PostElement extends Component {
             <div className="oneReview">
                 <table>
                     <tr>
-                        <td className="reviewDetail">
-                            <Avatar className="avatar">{thisReview.reviewFirstName[0]}{thisReview.reviewLastName[0]}</Avatar>
+                        <td>
+                            <div className="reviewDetail">
+                                <div style={{float: "left"}}>
+                                    <Avatar className="avatar">{thisReview.reviewFirstName[0]}{thisReview.reviewLastName[0]}</Avatar>
+                                </div>
+                                <div style={{float: "right"}}>
+                                <h6 className="header reviewerName">{thisReview.reviewFirstName} {thisReview.reviewLastName}</h6>
+                                </div>
+                            </div>
                         </td>
 
-                        <td className="reviewDetail">
-                            <h5 className="header">{thisReview.reviewFirstName} {thisReview.reviewLastName}</h5>
-                        </td>
-
-                        <td className="reviewContent">
-                            {/*thisReview.createdAt.toDate().toString()*/}
-                            <br></br>
-                            {thisReview.title ? thisReview.title : null}
+                        <td>
+                            <div className="reviewContent">
+                                {/*thisReview.createdAt.toDate().toString()*/}
+                                <br></br>
+                                {thisReview.title ? thisReview.title : null}
+                            </div>
                         </td>
                     </tr>
                 </table>

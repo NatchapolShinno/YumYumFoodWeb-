@@ -1,12 +1,15 @@
 .reviewDetail {
     text-align: left;
-    vertical-align: top;
+    vertical-align: middle;
+    max-width: 20vw;
+    float: left;
 }
 
 .reviewContent {
-    max-width: 40vh;
+    max-width: 40vw;
     text-align: right;
     vertical-align: top;
+    float: right;
 }
 
 .oneReview {
@@ -14,7 +17,17 @@
     margin-bottom: 2em;
 }
 
-.reviewDetal.avatar {
+.reviewerName {
+    margin-left: 1em;
+    margin-top: 0.5em;
+}
+
+.reviewDetail.avatar {
     width: 10vh;
     height: 10vh;
+    float: left;
+}
+
+.reviewDetail.header {
+    float: right;
 }

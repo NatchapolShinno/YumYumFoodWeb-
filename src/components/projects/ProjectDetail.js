@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Carousel, Container, Row, Card } from "react-bootstrap";
+import React, { useState, useRef } from "react";
+import { Carousel, Container, Row, Card, Button } from "react-bootstrap";
 import BurgerIMG from "../../image/gourmet-burger-scaled.jpg";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -11,9 +11,11 @@ import { createReview } from "../../store/actions/projectActions";
 
 let id = 1;
 
+
 const ProjectDetail = (props) => {
-  const { restaurant, match, reviews } = props;
+  const { restaurant, match, reviews, auth } = props;
   const [posts, setPosts] = useState([]);
+
   function addPost(title) {
     const restaurantID = match.params.id;
     const newPost = { id, title, restaurantID};
@@ -22,61 +24,43 @@ const ProjectDetail = (props) => {
     console.log(newPost);
     id += 1;
   } 
+  const scrollRef = useRef(null);
+
+  const scrollDown = () => scrollRef.current.scrollIntoView();
+
   if (restaurant) {
     return (
-      <Container style={{ padding: "20px 0 0 0" }}>
-        <Row>
-          <Carousel style={{ width: "100%", margin: "auto" }}>
-            <Carousel.Item>
-              <img className="d-block w-100" src={BurgerIMG} alt="First" />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={BurgerIMG} alt="Second" />
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="d-block w-100" src={BurgerIMG} alt="Third" />
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </Row>
-        <Row>
-          <Card style={{ width: "100%", margin: "20px 0 0 0" }}>
-            <Card.Body>
-              <Card.Title>{restaurant.restaurantName}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
+      <div>
+        <Row style={{marginBottom: "5%"}}>
+          <Card 
+            style={{width: "100vw", margin: "5% 0 0 0", height: "85vh" }}
+            border="light"
+            >
+            <Card.Img variant="top" src={BurgerIMG} style={{margin: "3% 0 0 0", paddingBottom: "3%", height: "50%", width: "auto", objectFit: "contain"}}/>
+            <Card.Body style={{backgroundColor: "#D52323", boxShadow: "2px 2px 3px #9E9E9E", padding: "2% 5% 0 5%"}}>
+              <Card.Title className="header" style={{fontWeight: "900", color: "white", textShadow: "2px 2px 2px #000000"}}>{restaurant.restaurantName}</Card.Title>
+              <Card.Subtitle className="mb-2" style={{color: "#33CA7F"}}>
                 {restaurant.priceType}
               </Card.Subtitle>
-              <Card.Text>
+              <Card.Text style={{color: "white", fontFamily: "Open Sans"}}>
                 <b>Phone:</b> {restaurant.phone}
                 <br />
                 <b>Address:</b> {restaurant.address}
                 <br />
                 <b>Open Hours:</b> {restaurant.openHours}
               </Card.Text>
-              <Card.Link href="#">Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
             </Card.Body>
+            <center><Button variant="outline-light" onClick={scrollDown} className="scrollButton">V</Button></center>
+            <center><label className="subtitleText blinking">more info</label></center>
+            <div ref={scrollRef}></div>
           </Card>
+          
         </Row>
-        <Input addPost={addPost} />
-        <Post reviews={reviews} />
-      </Container>
+        <Input addPost={addPost} auth={auth}/>
+        <div style={{margin: "0 10% 0 10%"}}>
+          <Post reviews={reviews} />
+        </div>
+        </div>
     );
   } else {
     return (
@@ -88,15 +72,17 @@ const ProjectDetail = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
+  console.log(state);
   const id = ownProps.match.params.id;
   const restaurants = state.firestore.data.Restaurants;
   const reviews = state.firestore.ordered.Reviews;
   const restaurant = restaurants ? restaurants[id] : null;
+  const auth = state.firebase.auth.uid ? state.firebase.auth.uid : null;
   return {
     restaurant: restaurant,
     reviews: reviews,
     ID: id,
+    auth: auth
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -108,6 +94,6 @@ export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect(() => ["Restaurants"]),
   firestoreConnect((ownProps) => [
-    { collection: "Reviews", where: [["restaurantID", "==", ownProps.match.params.id]] },
+    { collection: "Reviews", where: [["restaurantID", "==", ownProps.match.params.id]]/*, orderBy: [["reviewFirstName","desc"]] */},
   ])
 )(ProjectDetail);
